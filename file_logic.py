@@ -24,25 +24,25 @@ if __name__ == "__main__":
     with open("test_file.txt", "w") as f:
         f.write("Hackathon testing")
     move_file_to_folder("test_file.txt", "Organized_Files")
-    def smart_organizer(voice_text):
-    """
-    Scans the voice text for keywords and decides what to move.
-    """
-    current_dir = os.getcwd()
-    all_files = os.listdir(current_dir)
-    if "image" in voice_text or "photo" in voice_text:
-        target_folder = "My_Images"
-        extension = (".png", ".jpg", ".jpeg")
-    elif "document" in voice_text or "pdf" in voice_text:
-        target_folder = "My_Documents"
-        extension = (".pdf", ".docx", ".txt")
-    else:
-        print("Logic Error: I heard you, but I don't know which files to move.")
-        return False
-    moved_count = 0
-    for file in all_files:
-        if file.lower().endswith(extension):
-            move_file_to_folder(file, target_folder)
-            moved_count += 1       
-    print(f"Total files organized: {moved_count}")
-    return True
+def smart_organizer(voice_text):
+  """
+  Scans the voice text for keywords and decides what to move.
+  """
+  current_dir = os.getcwd()
+  all_files = os.listdir(current_dir)
+  if "image" in voice_text or "photo" in voice_text:
+      target_folder = "My_Images"
+      extension = (".png", ".jpg", ".jpeg")
+  elif "document" in voice_text or "pdf" in voice_text:
+      target_folder = "My_Documents"
+      extension = (".pdf", ".docx", ".txt")
+  else:
+      print("Logic Error: I heard you, but I don't know which files to move.")
+      return False
+  moved_count = 0
+  for file in all_files:
+      if file.lower().endswith(extension):
+          move_file_to_folder(file, target_folder)
+          moved_count += 1       
+  print(f"Total files organized: {moved_count}")
+  return True
